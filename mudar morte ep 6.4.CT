@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="29">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>5</ID>
+      <Description>"sistema de kill"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>// ||||||Desnvolvido por [DEV]Carlos||||||
+//   |||||| ProjetoShaiya ||||||
+// |||||||disrcod:[DEV]carlos#3566|||||||
+//    |||||||15-04-2021|||||||
+[ENABLE]
+alloc(novamemoria,2048)
+label(retorne)
+label(code)
+label(csv_map)
+define(lister,1)
+label(sair)
+
+
+novamemoria:
+mov byte ptr[edi+00000148*160],(int)lister
+jmp csv_map
+
+csv_map:
+add [edi+00000148],(int)1  // points for mort 1 = 2  / 2 = 4
+jmp sair
+
+code:
+add [edi+00000148],ecx
+
+sair:
+jmp retorne
+
+"ps_game.exe"+67DC0:
+jmp novamemoria
+nop
+retorne:
+
+
+[DISABLE]
+dealloc(novamemoria)
+"ps_game.exe"+67DC0:
+add [edi+00000148],ecx
+
+</AssemblerScript>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+</CheatTable>
