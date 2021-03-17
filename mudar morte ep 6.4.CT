@@ -20,7 +20,7 @@ label(sair)
 
 
 novamemoria:
-mov byte ptr[edi+00000148*160],(int)lister
+cmp byte ptr[edi+00000148*160],(int)lister
 jmp csv_map
 
 csv_map:
