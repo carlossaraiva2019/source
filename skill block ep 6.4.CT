@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="29">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>11</ID>
+      <Description>"skill block"</Description>
+      <Options moHideChildren="1" moRecursiveSetValue="1" moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>000080</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>10</ID>
+          <Description>"Guarda Ampla"</Description>
+          <LastState/>
+          <Color>0000FF</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>// ||||||Desnvolvido por [DEV]Carlos||||||
+//   |||||| ProjetoShaiya ||||||
+//    |||||||04-06-2021|||||||
+[ENABLE]
+alloc(novamemoria,2048)
+label(retorne)
+label(code)
+label(BNB)
+label(sair)
+
+novamemoria:
+
+
+BNB:
+cmp byte ptr[eax],00000063
+jmp code
+
+code:
+add al,[eax]
+add al,00
+add al,5C
+
+sair:
+jmp retorne
+
+070CEE19:
+jmp novamemoria
+nop
+retorne:
+
+
+
+
+ 
+ 
+[DISABLE]
+dealloc(novamemoria)
+070CEE19:
+add al,[eax]
+add al,00
+add al,5C
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>2</ID>
+          <Description>"Escudo da Alvorada"</Description>
+          <LastState/>
+          <Color>0000FF</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>// ||||||Desnvolvido por [DEV]Carlos||||||
+//   |||||| ProjetoShaiya ||||||
+//    |||||||04-06-2021|||||||
+[ENABLE]
+alloc(novamemoria,2048)
+label(retorne)
+label(code)
+label(Alvorada)
+label(sair)
+
+novamemoria:
+
+
+Alvorada:
+cmp byte ptr[esi],00000063
+jmp code
+
+
+code:
+push eax
+add [esi],al
+add [ecx],al
+
+sair:
+jmp retorne
+
+070EF460:
+jmp novamemoria
+retorne:
+
+
+ 
+ 
+[DISABLE]
+dealloc(novamemoria)
+070EF460:
+push eax
+add [esi],al
+add [ecx],al
+</AssemblerScript>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+</CheatTable>
