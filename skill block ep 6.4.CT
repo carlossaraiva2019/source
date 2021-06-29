@@ -1,60 +1,114 @@
 <?xml version="1.0" encoding="utf-8"?>
-<CheatTable CheatEngineTableVersion="31">
+<CheatTable CheatEngineTableVersion="29">
   <CheatEntries>
     <CheatEntry>
-      <ID>6</ID>
-      <Description>"Bloquear skills pelo mapa by Alvx9"</Description>
-      <LastState Activated="1"/>
-      <Color>A00000</Color>
-      <VariableType>Auto Assembler Script</VariableType>
-      <AssemblerScript>[ENABLE]
-//code from here to '[DISABLE]' will be used to enable the cheat
-alloc(newmem,2048)
-label(returnhere)
-label(originalcode)
+      <ID>11</ID>
+      <Description>"skill block"</Description>
+      <Options moHideChildren="1" moRecursiveSetValue="1" moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>000080</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>10</ID>
+          <Description>"Pog"</Description>
+          <LastState/>
+          <Color>0000FF</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>// ||||||Desnvolvido por [DEV]Carlos||||||
+///https://www.facebook.com/ProjetoShaiya///
+//   |||||| Shaiya Tera On-Line ||||||
+//    |||||||04-06-2021|||||||
+[ENABLE]
+alloc(novamemoria,2048)
+label(retorne)
+label(code)
+label(BNB)
+label(sair)
 
-newmem: //this is allocated memory, you have read,write,execute access
-//place your code here
-cmp word ptr[edi+0000160],(int)60
-jne originalcode
-cmp byte ptr[eax],(int)181
-je 00478BC9
-cmp byte ptr[eax],(int)175
-je 00478BC9
-
-jmp originalcode // return for originalcode case false
-
-originalcode:
-movzx ecx,word ptr [eax+24]  // original code
-test cx,cx
-jmp returnhere
+novamemoria:
 
 
-"ps_game.exe"+78C62:
-jmp newmem
+BNB:
+cmp byte ptr[eax],00000063
+jmp code
+
+code:
+add al,[eax]
+add al,00
+add al,5C
+
+sair:
+jmp retorne
+
+070CEE19:
+jmp novamemoria
 nop
-nop
-returnhere:
+retorne:
+
+
 
 
  
  
 [DISABLE]
-//code from here till the end of the code will be used to disable the cheat
-dealloc(newmem)
-"ps_game.exe"+78C62:
-movzx ecx,word ptr [eax+24]
-test cx,cx
-//Alt: db 0F B7 48 24 66 85 C9
+dealloc(novamemoria)
+070CEE19:
+add al,[eax]
+add al,00
+add al,5C
 </AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>2</ID>
+          <Description>"Fly"</Description>
+          <LastState/>
+          <Color>0000FF</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>// ||||||Desnvolvido por [DEV]Carlos||||||
+///https://www.facebook.com/ProjetoShaiya///
+//   |||||| Shaiya Tera On-Line ||||||
+//    |||||||04-06-2021|||||||
+[ENABLE]
+alloc(novamemoria,2048)
+label(retorne)
+label(code)
+label(Alvorada)
+label(sair)
+
+novamemoria:
+
+
+Alvorada:
+cmp byte ptr[esi],00000063
+jmp code
+
+
+code:
+push eax
+add [esi],al
+add [ecx],al
+
+sair:
+jmp retorne
+
+070EF460:
+jmp novamemoria
+retorne:
+
+
+ 
+ 
+[DISABLE]
+dealloc(novamemoria)
+070EF460:
+push eax
+add [esi],al
+add [ecx],al
+</AssemblerScript>
+        </CheatEntry>
+      </CheatEntries>
     </CheatEntry>
   </CheatEntries>
   <UserdefinedSymbols/>
-  <DisassemblerComments>
-    <DisassemblerComment>
-      <Address>"ps_game.exe"+78C6B</Address>
-      <Comment>Comparando o level da skill com o level do personagem , se for igual não irá usar skill.
-</Comment>
-    </DisassemblerComment>
-  </DisassemblerComments>
 </CheatTable>
