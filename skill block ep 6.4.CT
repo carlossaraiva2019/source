@@ -31,7 +31,7 @@ novamemoria:
 
 BNB:
 cmp byte ptr[eax],00000063
-jmp code
+jmp retorne
 
 code:
 add al,[eax]
@@ -81,7 +81,7 @@ novamemoria:
 
 Alvorada:
 cmp byte ptr[esi],00000063
-jmp code
+jmp retorne
 
 
 code:
