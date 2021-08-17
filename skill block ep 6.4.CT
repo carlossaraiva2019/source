@@ -11,7 +11,7 @@
       <CheatEntries>
         <CheatEntry>
           <ID>22</ID>
-          <Description>"BloqueiaTotal de skill"</Description>
+          <Description>"BloqueioTotal de skill"</Description>
           <LastState/>
           <Color>0000FF</Color>
           <VariableType>Auto Assembler Script</VariableType>
