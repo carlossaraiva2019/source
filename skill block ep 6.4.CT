@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<CheatTable CheatEngineTableVersion="29">
+<CheatTable CheatEngineTableVersion="34">
   <CheatEntries>
     <CheatEntry>
       <ID>11</ID>
@@ -10,101 +10,50 @@
       <GroupHeader>1</GroupHeader>
       <CheatEntries>
         <CheatEntry>
-          <ID>10</ID>
-          <Description>"Pog"</Description>
+          <ID>22</ID>
+          <Description>"BloqueiaTotal de skill"</Description>
           <LastState/>
           <Color>0000FF</Color>
           <VariableType>Auto Assembler Script</VariableType>
-          <AssemblerScript>// ||||||Desnvolvido por [DEV]Carlos||||||
-///https://www.facebook.com/ProjetoShaiya///
-//   |||||| Shaiya Tera On-Line ||||||
-//    |||||||04-06-2021|||||||
+          <AssemblerScript>// ||||||Desnvolvido por Carlos||||||
+//   |||||| ProjetoShaiya ||||||
+//    |||||||16-08-2021|||||||
 [ENABLE]
-alloc(novamemoria,2048)
-label(retorne)
-label(code)
-label(BNB)
-label(sair)
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048)
+label(returnhere)
+label(bloqueiodetodasskill)
+label(originalcode)
+label(exit)
 
-novamemoria:
+newmem:
 
+bloqueiodetodasskill:
+cmp byte ptr[eax+32],(int)99
+jmp returnhere
 
-BNB:
-cmp byte ptr[eax],00000063
-jmp retorne
+originalcode:
+movzx ecx,word ptr [eax+32]
+mov ebx,[ebp+00001548]
 
-code:
-add al,[eax]
-add al,00
-add al,5C
+exit:
+jmp returnhere
 
-sair:
-jmp retorne
-
-070CEE19:
-jmp novamemoria
-nop
-retorne:
-
-
+"ps_game.exe"+9D4F7:
+jmp newmem
+nop 5
+returnhere:
 
 
  
  
 [DISABLE]
-dealloc(novamemoria)
-070CEE19:
-add al,[eax]
-add al,00
-add al,5C
-</AssemblerScript>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>2</ID>
-          <Description>"Fly"</Description>
-          <LastState/>
-          <Color>0000FF</Color>
-          <VariableType>Auto Assembler Script</VariableType>
-          <AssemblerScript>// ||||||Desnvolvido por [DEV]Carlos||||||
-///https://www.facebook.com/ProjetoShaiya///
-//   |||||| Shaiya Tera On-Line ||||||
-//    |||||||04-06-2021|||||||
-[ENABLE]
-alloc(novamemoria,2048)
-label(retorne)
-label(code)
-label(Alvorada)
-label(sair)
-
-novamemoria:
-
-
-Alvorada:
-cmp byte ptr[esi],00000063
-jmp retorne
-
-
-code:
-push eax
-add [esi],al
-add [ecx],al
-
-sair:
-jmp retorne
-
-070EF460:
-jmp novamemoria
-retorne:
-
-
- 
- 
-[DISABLE]
-dealloc(novamemoria)
-070EF460:
-push eax
-add [esi],al
-add [ecx],al
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"ps_game.exe"+9D4F7:
+movzx ecx,word ptr [eax+32]
+mov ebx,[ebp+00001548]
+//Alt: db 0F B7 48 32 8B 9D 48 15 00 00
 </AssemblerScript>
         </CheatEntry>
       </CheatEntries>
