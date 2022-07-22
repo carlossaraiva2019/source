@@ -1,0 +1,14 @@
+USE PS_GameDefs
+
+SELECT 
+
+dbo.Mobs.MobID, 
+dbo.Mobs.MobName, 
+dbo.Mobs.HP, 
+dbo.Mobs.Level, 
+dbo.Mobs.Attrib, 
+dbo.MobItems.Grade, 
+dbo.MobItems.ItemOrder, 
+dbo.MobItems.DropRate
+
+FROM dbo.MobItems
