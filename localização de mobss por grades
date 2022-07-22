@@ -12,3 +12,11 @@ dbo.MobItems.ItemOrder,
 dbo.MobItems.DropRate
 
 FROM dbo.MobItems
+
+
+ 
+INNER 
+JOIN Mobs ON dbo.Mobs.MobID = dbo.MobItems.MobID 
+
+WHERE Grade = (SELECT TOP 1 Grade FROM PS_GameDefs.dbo.Items WHERE Grade = 5) 
+ORDER BY dbo.MobItems.DropRate DESC
